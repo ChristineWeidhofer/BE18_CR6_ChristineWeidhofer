@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Event;
+use App\Entity\Type;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,6 +18,10 @@ class EventType extends AbstractType
             ->add('date')
             ->add('descr')
             ->add('image')
+            ->add('fk_type', EntityType::class, [
+                'class' => Type::class,
+                'choice_label' => 'type',
+            ])         
             ->add('cap')
             ->add('location')
             ->add('email')

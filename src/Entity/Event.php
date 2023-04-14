@@ -41,6 +41,9 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $url = null;
 
+    #[ORM\ManyToOne]
+    public ?Type $fk_type = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +153,18 @@ class Event
     public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getFkType(): ?Type
+    {
+        return $this->fk_type;
+    }
+
+    public function setFkType(?Type $fk_type): self
+    {
+        $this->fk_type = $fk_type;
 
         return $this;
     }
