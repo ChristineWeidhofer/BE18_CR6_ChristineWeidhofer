@@ -2,10 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Address;
 use App\Entity\Event;
 use App\Entity\Type;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -40,9 +42,17 @@ class EventType extends AbstractType
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem'],
                 'label' => 'Capacity',
             ])
-            ->add('location', TextType::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
+            ->add('location', ChoiceType::class, [
+                'choices' => ['Wiener Staatsoper' => 'Wiener Staatsoper', 'Volkstheater' => 'Volkstheater', 'Museumsquartier' => 'Museumsquartier', 'Volksgarten' => 'Volksgarten'],
+                'attr' => ['class' => 'form-select', 'style' => 'margin-bottom:1rem'],
             ])
+
+            ->add('fk_address', EntityType::class, [
+                'attr' => ['class' => 'form-select', 'style' => 'margin-bottom:1rem'],
+                'class' => Address::class,
+                'choice_label' => 'street',
+                'label' => 'Chose an address',
+            ])    
             ->add('email', TextType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
             ])

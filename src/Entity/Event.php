@@ -44,6 +44,9 @@ class Event
     #[ORM\ManyToOne]
     public ?Type $fk_type = null;
 
+    #[ORM\ManyToOne]
+    public ?Address $fk_address = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +168,18 @@ class Event
     public function setFkType(?Type $fk_type): self
     {
         $this->fk_type = $fk_type;
+
+        return $this;
+    }
+
+    public function getFkAddress(): ?Address
+    {
+        return $this->fk_address;
+    }
+
+    public function setFkAddress(?Address $fk_address): self
+    {
+        $this->fk_address = $fk_address;
 
         return $this;
     }
