@@ -14,14 +14,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class EventController extends AbstractController
 {
     #[Route('/', name: 'app_event_index', methods: ['GET'])]
-    public function index(EventRepository $eventRepository, Request $request): Response
+    public function index(EventRepository $eventRepository): Response
+    {
+        return $this->render('event/index.html.twig', [
+            'events' => $eventRepository->findAll(),
+            // 'events' => $eventRepository->findBy(array(),array('date' => 'ASC')), //sort by date ascending
+        ]);
+    }
+
+    #[Route('/location', name: 'app_event_location', methods: ['GET'])]
+    public function indexLoc(EventRepository $eventRepository, Request $request): Response
     {
 
         $loc = $request->query->get('location');
 
         return $this->render('event/index.html.twig', [
-            'events' => $eventRepository->findAll(),
-            // 'events' => $eventRepository->findBy(array(),array('date' => 'ASC')), //sort by date ascending
             'events' => $eventRepository->findBy(['location' => $loc]),
         ]);
     }

@@ -3,16 +3,58 @@ body {
   padding: 0;
 }
 
+.pink-link:link    { color: #CD1DF2; }
+.pink-link:visited { color: #7e1194; }
+.pink-link:hover   { color: #7e1194; }
+.pink-link:focus   { outline: 1px solid #CD1DF2; }
+.pink-link:active  { color: #7e1194;}
+
 a.btn, .btn {
   margin-block: 0.5rem;
 }
 
-.card {
-  border: none;
+.btn {
+  border-radius: 0px;
 }
 
-th {
-  vertical-align: middle!important;
+.btn-success, .btn-danger {
+  background-color: #CD1DF2;
+  border: #CD1DF2;
+}
+
+.btn-success:hover, .btn-danger:hover {
+  background-color: #7e1194;
+}
+
+.btn-primary {
+  background-color: #022FC0;
+  border: #022FC0;
+}
+
+.btn-primary:hover {
+  background-color: #011862;
+}
+
+.btn-secondary {
+  background-color: #0eccb4;
+  border: #0eccb4;
+}
+
+.btn-secondary:hover {
+  background-color: #00a08b;
+}
+
+.nav-link:hover, .glow {
+  box-shadow: 0 0 1rem 0.1rem #CD1DF2;
+}
+
+.dropdown-item {
+  color:#adb5bd;
+}
+
+.dropdown-item:hover {
+  background:#CD1DF2;
+  color:#F8F9FA;
 }
 
 .input-group-append {
@@ -57,50 +99,10 @@ th {
   position: relative;
 }
 
-.btn {
-  border-radius: 0px;
-}
-
-.btn-success {
-  background-color: #CD1DF2;
-  border: #CD1DF2;
-}
-
-.btn-success:hover {
-  background-color: #7e1194;
-}
-
-.btn-primary {
-  background-color: #022FC0;
-  border: #022FC0;
-}
-
-.btn-primary:hover {
-  background-color: #011862;
-}
-
-.btn-secondary {
-  background-color: #0eccb4;
-  border: #0eccb4;
-}
-
-.btn-secondary:hover {
-  background-color: #00a08b;
-}
-
-.btn-danger {
-  background-color: #1B202E;
-  border: #1B202E;
-}
-
-.btn-danger:hover {
-  background-color: #2c354b;
-}
-
 .card {
-  background-color: rgb(244, 244, 244);
-  box-shadow: 0 0 1.5rem 0.1rem #CD1DF2;
+  box-shadow: 0 0 1rem #CD1DF2;
   transition: all 0.3s ease-in-out;
+  border: none;
 }
 
 .card:hover {
@@ -108,12 +110,17 @@ th {
 }
 
 .card-img-top, .card-img {
-  aspect-ratio: 1;
+  aspect-ratio: 3/2;
   object-fit: cover;
 }
 
+#square.card-img, #square.card-img-top {
+  aspect-ratio: 1;
+}
+
 .list-group li {
-  background-color: rgb(244, 244, 244);
+  background-color: #212529;
+  color: white;
 }
 
 select#event_date_date_month, select#event_date_date_day,
@@ -123,8 +130,4 @@ select#event_date_time_minute {
   margin-inline: 0.3rem;
   border-color: #CD1DF2;
   border-radius: 0.3rem;
-}
-
-.nav-link:hover {
-  box-shadow: 0 0 1rem 0.1rem #CD1DF2;
 }

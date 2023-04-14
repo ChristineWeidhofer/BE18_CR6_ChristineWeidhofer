@@ -3,15 +3,15 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1 class="my-5 display-5 text-center">{{event.name}}</h1>
+    {# <h1 class="my-5 display-5 text-center">{{event.name}}</h1> #}
 
-    <div class="wrapper card mx-auto d-flex flex-column flex-md-row p-5">
+    <div class="wrapper card bg-dark mx-auto d-flex flex-column flex-md-row p-5 mt-4">
         <div class="wrap1 w-100 w-md-50">
-            <img src="{{asset('images/' ~ event.image)}}" class="card-img show-image" alt="{{ event.name}}">
+            <img src="{{asset('images/' ~ event.image)}}" id="square" class="card-img show-image" alt="{{ event.name}}">
         </div>
         <div class="wrap2 w-100 w-md-50 ps-md-4">
             <div class="card-body">
-                <h5 class="card-title text-dark display-5 fw-bold">{{ event.name }}</h5>
+                <h5 class="card-title display-5 fw-bold">{{ event.name }}</h5>
                 <p class="card-text text-muted">{{ event.descr }}</p>
             </div>
             <ul class="list-group list-group-flush show">
@@ -22,7 +22,7 @@
                 <li class="list-group-item"><b>Capacity:</b> {{ event.cap }} people</li>
                 <li class="list-group-item"><b>Email:</b> {{event.email}}</li>
                 <li class="list-group-item"><b>Phone:</b> {{event.phone}}</li>
-                <li class="list-group-item"><b>URL:</b> <a href="https://{{event.url}}" target="_blank">{{event.url}}</a></li>
+                <li class="list-group-item"><b>URL:</b> <a href="https://{{event.url}}" class="pink-link" target="_blank">{{event.url}}</a></li>
             </ul>
             <div class="flex-btns d-flex">
                 <a class="btn btn-primary ms-3" href="{{ path('app_event_index') }}">Back to Events</a>

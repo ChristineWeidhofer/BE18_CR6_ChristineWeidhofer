@@ -4,7 +4,7 @@
 
 {% block body %}
     <div id="hero" class="hero d-flex flex-column justify-content-center align-items-center mb-4">
-        <h1 class="text-white display-3 fw-bold">All Events</h1>
+        <h1 class="text-white display-3 fw-bold">Events</h1>
         <a class="btn btn-success my-3" href="{{ path('app_event_new') }}">Create new</a>
         {# <button class="sort-due btn btn-success my-3" type="submit">Sort by due date</button> #}
     </div>
@@ -12,28 +12,32 @@
         <div class="wrapper row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mx-auto">
         {% for event in events %}
             <div class="card-wrap">
-                <div class="card my-4 mx-2">
+                <div class="card bg-dark my-4 mx-2">
                     <img src="{{asset('images/' ~ event.image)}}" class="card-img-top w-100" alt="Picture of {{event.name}}">
                     
                     <div class="card-body">
-                    <h5 class="card-title fw-bold fs-4 text-dark">{{event.name}}</h5>
+                    <h5 class="card-title fw-bold fs-4">{{event.name}}</h5>
                     <p class="card-text text-muted">{{event.descr}}</p>
                     </div>
             
                     <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="bi-calendar-check icons-start me-1"></i><span>{{ event.date ? event.date|date('d. M. Y H:i') : '' }}</span></li>
-                    <li class="list-group-item">{{ event.location }} ({{ event.fkType.type }})</li>
-                    <li class="list-group-item">{{ event.url }}</li>
+                        <li class="list-group-item"><i class="bi-calendar-check icons-start me-1"></i><span>{{ event.date ? event.date|date('F jS, Y - H:i / g a') : '' }}</span></li>
+                        <li class="list-group-item"><i class="bi bi-geo-alt me-1"></i><span>{{ event.location }} ({{ event.fkType.type }})</span></li>
+                        <li class="list-group-item"><a class="pink-link" href="https://{{event.url}}" target="_blank">{{event.url}}</a></li>
                     </ul>
                     
-                    <a class="btn btn-primary" href="{{ path('app_event_show', {'id': event.id}) }}">Show</a>
-                    <a class="btn btn-secondary" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
-                    <a class="btn btn-danger mb-3" href="{{ path('app_event_delete', {'id': event.id}) }}">Delete</a>
+                    <div class="d-flex justify-content-center align-items-center mb-4">
+                        <a class="btn btn-primary" href="{{ path('app_event_show', {'id': event.id}) }}">Show</a>
+                        <a class="btn btn-secondary" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
+                        <a class="btn btn-danger" href="{{ path('app_event_delete', {'id': event.id}) }}">Delete</a>
+                    </div>
                     
                 </div>
             </div>
         {% else %}
-                <h1 class="text-center">no records found</h1>
+                <div class="mx-auto">
+                    <h1 class="text-center">no records found</h1>
+                </div>
         {% endfor %}
         </div>
     

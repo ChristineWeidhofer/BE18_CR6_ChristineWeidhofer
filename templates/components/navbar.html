@@ -3,7 +3,7 @@
     <a href="/" class="mx-4 text-muted text-decoration-none lh-1">
         <i class="bi bi-calendar-heart-fill text-light" width="30" height="24"></i>
     </a>
-    <a class="navbar-brand" href="/event">Big Events</a>
+    <a class="navbar-brand fw-bold" href="/event">Big Events</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,35 +11,36 @@
         <div class="navbar-nav d-md-flex flex-md-row justify-content-center justify-content-md-between w-100 mt-md-4 mt-lg-0">
             <ul class="nav1 d-flex align-items-md-center navbar-nav p-3 p-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link px-2" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link px-2" href="/about">About</a>
                 </li>
             </ul>
             <ul class="nav2 d-flex align-items-md-center navbar-nav p-3 p-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/event">Show All Events</a>
+                    <a class="nav-link px-2" href="/event">Show All Events</a>
                 </li>
                 <!--DROPDOWN-->
-                <!-- the animal selectin starts here -->
+                
                 <li class="nav-item dropdown">
-                    <button type="button" class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Filter Events</button>
-                <ul class="dropdown-menu dropdown-menu-end">
+                    <button type="button" class="btn btn-link nav-link px-2 dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Filter Events</button>
+                <ul class="dropdown-menu dropdown-menu-end bg-dark">
                     <li>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between active" aria-current="true" href="/event">Show All Events</a>
+                        <a class="dropdown-item d-flex align-items-center justify-content-between" href="/event">Show All Events</a>
                     </li>
-                    <li><a class="dropdown-item" href="/event?location=Volksgarten">Volksgarten</a></li>
-                    <li><a class="dropdown-item" href="/event?location=Staatsoper">Staatsoper</a></li>
-                    <li><a class="dropdown-item" href="/event?location=Volkstheater">Volkstheater</a></li>
-                    <li><a class="dropdown-item" href="/event?location=Museumsquartier">Museumsquartier</a></li>
+                    <li><a class="dropdown-item" href="/event/location?location=Volksgarten">Volksgarten</a></li>
+                    <li><a class="dropdown-item" href="/event/location?location=Staatsoper">Staatsoper</a></li>
+                    <li><a class="dropdown-item" href="/event/location?location=Volkstheater">Volkstheater</a></li>
+                    <li><a class="dropdown-item" href="/event/location?location=Museumsquartier">Museumsquartier</a></li>
+                    <li><a class="dropdown-item" href="/event/location?location=Admiralkino">Admiralkino</a></li>
                 </ul>
                 <!--DROPDOWN END-->
                 <li class="nav-item">
-                    <a class="nav-link" href="/event/new">Create New Event</a>
+                    <a class="nav-link px-2" href="/event/new">Create New Event</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white my-4 my-md-2 mx-4" href="/"><i class="bi bi-search me-2" width="24" height="24" aria-hidden="true"></i>Search</a>
+                    <a class="nav-link px-2 text-white my-4 my-md-2 mx-4" href="/"><i class="bi bi-search me-2" width="24" height="24" aria-hidden="true"></i>Search</a>
                 </li>
             </ul>
         </div>
