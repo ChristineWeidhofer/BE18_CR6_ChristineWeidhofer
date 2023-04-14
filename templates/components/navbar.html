@@ -21,6 +21,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/event">Show All Events</a>
                 </li>
+                <!--DROPDOWN-->
+                <!-- the animal selectin starts here -->
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Filter Events</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center justify-content-between active" aria-current="true" href="/event">Show All Events</a>
+                    </li>
+                    <li><a class="dropdown-item" href="/event?location=Volksgarten">Volksgarten</a></li>
+                    <li><a class="dropdown-item" href="/event?location=Staatsoper">Staatsoper</a></li>
+                    <li><a class="dropdown-item" href="/event?location=Volkstheater">Volkstheater</a></li>
+                    <li><a class="dropdown-item" href="/event?location=Museumsquartier">Museumsquartier</a></li>
+                </ul>
+                <!--DROPDOWN END-->
                 <li class="nav-item">
                     <a class="nav-link" href="/event/new">Create New Event</a>
                 </li>

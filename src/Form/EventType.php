@@ -43,7 +43,7 @@ class EventType extends AbstractType
                 'label' => 'Capacity',
             ])
             ->add('location', ChoiceType::class, [
-                'choices' => ['Wiener Staatsoper' => 'Wiener Staatsoper', 'Volkstheater' => 'Volkstheater', 'Museumsquartier' => 'Museumsquartier', 'Volksgarten' => 'Volksgarten'],
+                'choices' => ['Staatsoper' => 'Staatsoper', 'Volkstheater' => 'Volkstheater', 'Museumsquartier' => 'Museumsquartier', 'Volksgarten' => 'Volksgarten'],
                 'attr' => ['class' => 'form-select', 'style' => 'margin-bottom:1rem'],
             ])
 
