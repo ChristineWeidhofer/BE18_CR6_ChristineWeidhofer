@@ -9,14 +9,14 @@
         {# <button class="sort-due btn btn-success my-3" type="submit">Sort by due date</button> #}
     </div>
 
-        <div class="wrapper row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-4 mx-auto">
+        <div class="wrapper row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mx-auto">
         {% for event in events %}
             <div class="card-wrap">
                 <div class="card my-4 mx-2">
                     <img src="{{asset('images/' ~ event.image)}}" class="card-img-top w-100" alt="Picture of {{event.name}}">
                     
                     <div class="card-body">
-                    <h5 class="card-title text-dark">{{event.name}}</h5>
+                    <h5 class="card-title fw-bold fs-4 text-dark">{{event.name}}</h5>
                     <p class="card-text text-muted">{{event.descr}}</p>
                     </div>
             
@@ -28,7 +28,7 @@
                     
                     <a class="btn btn-primary" href="{{ path('app_event_show', {'id': event.id}) }}">Show</a>
                     <a class="btn btn-secondary" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
-                    <a class="btn btn-danger" href="{{ path('app_event_delete', {'id': event.id}) }}">Delete</a>
+                    <a class="btn btn-danger mb-3" href="{{ path('app_event_delete', {'id': event.id}) }}">Delete</a>
                     
                 </div>
             </div>

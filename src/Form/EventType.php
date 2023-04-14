@@ -6,6 +6,9 @@ use App\Entity\Event;
 use App\Entity\Type;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,19 +17,42 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('date')
-            ->add('descr')
-            ->add('image')
+            ->add('name', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
+            ])
+            ->add('date', DateTimeType::class, [
+                'attr' => ['class' => 'form-control input-group pink', 'style' => 'margin-bottom:1rem']
+            ])
+            ->add('descr', TextareaType::class, [
+                'attr' => ['class' => 'form-control tinymce', 'style' => 'margin-bottom:1rem'],
+                'label' => 'Description',
+            ])
+            ->add('image', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
+            ])
             ->add('fk_type', EntityType::class, [
+                'attr' => ['class' => 'form-select', 'style' => 'margin-bottom:1rem'],
                 'class' => Type::class,
                 'choice_label' => 'type',
+                'label' => 'Type',
             ])         
-            ->add('cap')
-            ->add('location')
-            ->add('email')
-            ->add('phone')
-            ->add('url')
+            ->add('cap', null, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem'],
+                'label' => 'Capacity',
+            ])
+            ->add('location', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
+            ])
+            ->add('email', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
+            ])
+            ->add('phone', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem']
+            ])
+            ->add('url', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:1rem'],
+                'label' => 'URL',
+            ])
         ;
     }
 

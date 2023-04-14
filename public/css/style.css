@@ -4,7 +4,7 @@ body {
 }
 
 a.btn, .btn {
-  margin: 0.5rem;
+  margin-block: 0.5rem;
 }
 
 .card {
@@ -17,11 +17,6 @@ th {
 
 .input-group-append {
   cursor: pointer;
-}
-
-.rect {
-  aspect-ratio: 3/2;
-  object-fit: cover;
 }
 
 .wrapper {
@@ -103,6 +98,7 @@ th {
 }
 
 .card {
+  background-color: rgb(244, 244, 244);
   box-shadow: 0 0 1.5rem 0.1rem #CD1DF2;
   transition: all 0.3s ease-in-out;
 }
@@ -111,7 +107,24 @@ th {
   transform: scale(1.01);
 }
 
-.card-img-top {
+.card-img-top, .card-img {
   aspect-ratio: 1;
   object-fit: cover;
+}
+
+.list-group li {
+  background-color: rgb(244, 244, 244);
+}
+
+select#event_date_date_month, select#event_date_date_day,
+select#event_date_date_year, select#event_date_time_hour,
+select#event_date_time_minute {
+  padding: 0.3rem;
+  margin-inline: 0.3rem;
+  border-color: #CD1DF2;
+  border-radius: 0.3rem;
+}
+
+.nav-link:hover {
+  box-shadow: 0 0 1rem 0.1rem #CD1DF2;
 }

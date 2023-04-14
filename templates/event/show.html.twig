@@ -3,15 +3,15 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1 class="my-5 text-center">{{event.name}}</h1>
+    <h1 class="my-5 display-5 text-center">{{event.name}}</h1>
 
     <div class="wrapper card mx-auto d-flex flex-column flex-md-row p-5">
-        <div class="wrap1 w-50">
-            <img src="{{asset('images/' ~ event.image)}}" class="card-img-top show-image" alt="{{ event.name}}">
+        <div class="wrap1 w-100 w-md-50">
+            <img src="{{asset('images/' ~ event.image)}}" class="card-img show-image" alt="{{ event.name}}">
         </div>
-        <div class="wrap2 w-50 ps-md-4">
+        <div class="wrap2 w-100 w-md-50 ps-md-4">
             <div class="card-body">
-                <h5 class="card-title text-dark fw-bold">{{ event.name }}</h5>
+                <h5 class="card-title text-dark display-5 fw-bold">{{ event.name }}</h5>
                 <p class="card-text text-dark">{{ event.descr }}</p>
             </div>
             <ul class="list-group list-group-flush">
@@ -22,13 +22,15 @@
                 <li class="list-group-item">Location: {{ event.location }} ({{ event.fkType.type }})</li>
                 <li class="list-group-item">Capacity: {{ event.cap }} people</li>
                 {# <li class="list-group-item">Address: {{event.fkAddress.street}}, {{event.fkAddress.zip}} {{event.fkAddress.city}}</li> #}
-                <li class="list-group-item">Email: <b>{{event.email}}</b></li>
-                <li class="list-group-item">Phone: <b>{{event.phone}}</b></li>
-                <li class="list-group-item">URL: <b>{{event.url}}</b></li>
+                <li class="list-group-item">Email: {{event.email}}</li>
+                <li class="list-group-item">Phone: {{event.phone}}</li>
+                <li class="list-group-item">URL: {{event.url}}</li>
             </ul>
-            <a class="btn btn-primary" href="{{ path('app_event_index') }}">Back to Events</a>
-            <a class="btn btn-secondary" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
-            {{ include('event/_delete_form.html.twig') }}
+            <div class="flex-btns d-flex">
+                <a class="btn btn-primary mx-3" href="{{ path('app_event_index') }}">Back to Events</a>
+                <a class="btn btn-secondary mx-3" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
+                {{ include('event/_delete_form.html.twig') }}
+            </div>
         </div>
     </div>
 
