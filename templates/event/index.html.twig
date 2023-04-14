@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Event index{% endblock %}
 
@@ -28,7 +28,7 @@
                 <td>{{ event.name }}</td>
                 <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.descr }}</td>
-                <td>{{ event.image }}</td>
+                <td><img src="{{ event.image }}"></td>
                 <td>{{ event.cap }}</td>
                 <td>{{ event.location }}</td>
                 <td>{{ event.email }}</td>
@@ -48,4 +48,45 @@
     </table>
 
     <a href="{{ path('app_event_new') }}">Create new</a>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}All Todos{% endblock %}
+
+{% block body %}
+    <div id="hero" class="hero d-flex justify-content-start align-items-center mb-4">
+        <h1 class="ms-4">All Events</h1>
+        <a class="btn btn-success my-3" href="{{ path('app_event_new') }}">Create new</a>
+        {# <button class="sort-due btn btn-success my-3" type="submit">Sort by due date</button> #}
+    </div>
+
+        <div class="wrapper row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-4 mx-auto">
+        {% for event in events %}
+            <div class="card-wrap">
+                <div class="card my-4 shadow">
+                    <img src="{{asset('images/' ~ event.image)}}" class="card-img-top w-100 rect" alt="Picture of {{event.name}}">
+                    
+                    <div class="card-body">
+                    <h5 class="card-title">{{event.name}}</h5>
+                    <p class="card-text text-muted">{{event.descr}}</p>
+                    </div>
+            
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="bi-calendar-check icons-start me-1"></i><span>{{ event.date ? event.date|date('d. M. Y H:i') : '' }}</span></li>
+                    <li class="list-group-item">{{ event.location }}</li>
+                    <li class="list-group-item">{{ event.url }}</li>
+                    </ul>
+                    
+                    <a class="btn btn-primary" href="{{ path('app_event_show', {'id': event.id}) }}">Show</a>
+                    <a class="btn btn-warning" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
+                    <a class="btn btn-danger" href="{{ path('app_event_delete', {'id': event.id}) }}">Delete</a>
+                    
+                </div>
+            </div>
+        {% else %}
+                <h1 class="text-center">no records found</h1>
+        {% endfor %}
+        </div>
+    
 {% endblock %}
