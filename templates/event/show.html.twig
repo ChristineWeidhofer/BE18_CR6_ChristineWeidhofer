@@ -3,60 +3,33 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1 class="my-5 text-center">{{event.name}}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ event.name }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Descr</th>
-                <td>{{ event.descr }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ event.fkType.type }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ event.image }}</td>
-            </tr>
-            <tr>
-                <th>Cap</th>
-                <td>{{ event.cap }}</td>
-            </tr>
-            <tr>
-                <th>Location</th>
-                <td>{{ event.location }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ event.email }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ event.phone }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ event.url }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="wrapper card mx-auto d-flex flex-column flex-md-row p-5">
+        <div class="wrap1 w-50">
+            <img src="{{asset('images/' ~ event.image)}}" class="card-img-top show-image" alt="{{ event.name}}">
+        </div>
+        <div class="wrap2 w-50 ps-md-4">
+            <div class="card-body">
+                <h5 class="card-title text-dark fw-bold">{{ event.name }}</h5>
+                <p class="card-text text-dark">{{ event.descr }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
 
-    <a href="{{ path('app_event_index') }}">back to list</a>
+                <li class="list-group-item">Date: {{ event.date ? event.date|date('d. M Y') : '' }}</li>
+                <li class="list-group-item">Time: {{ event.date ? event.date|date('H:i') : '' }}</li>
 
-    <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
+                <li class="list-group-item">Location: {{ event.location }} ({{ event.fkType.type }})</li>
+                <li class="list-group-item">Capacity: {{ event.cap }} people</li>
+                {# <li class="list-group-item">Address: {{event.fkAddress.street}}, {{event.fkAddress.zip}} {{event.fkAddress.city}}</li> #}
+                <li class="list-group-item">Email: <b>{{event.email}}</b></li>
+                <li class="list-group-item">Phone: <b>{{event.phone}}</b></li>
+                <li class="list-group-item">URL: <b>{{event.url}}</b></li>
+            </ul>
+            <a class="btn btn-primary" href="{{ path('app_event_index') }}">Back to Events</a>
+            <a class="btn btn-secondary" href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
+            {{ include('event/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
