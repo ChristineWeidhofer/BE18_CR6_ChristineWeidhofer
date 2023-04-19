@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +23,19 @@ class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/location', name: 'app_event_location', methods: ['GET'])]
+    #[Route('/type/{type}', name: 'app_event_type', methods: ['GET'])]
+    public function indexTyp(EventRepository $eventRepository,TypeRepository $typeRepository, Request $request, $type): Response
+    {
+        
+        $type = $typeRepository->findByType($type);
+        $events = $eventRepository->findBy(array("fk_type" => $type));
+
+        return $this->render('event/type.html.twig', [
+            'events' => $events,
+        ]);
+    }
+
+        #[Route('/location', name: 'app_event_location', methods: ['GET'])]
     public function indexLoc(EventRepository $eventRepository, Request $request): Response
     {
 
